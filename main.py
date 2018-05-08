@@ -37,36 +37,38 @@ def main():
     BD = SQlite()
     YT= AppYoutube()
     while True:
-        bienvenido = "------------- Bienvenido ------------"
-        opcion = int(input("-----Menu----- 1... Guardar \n2... Ver Lista \n3... Ver Video \n4...  modificar \n5... Borrar \n0... Salir\n"))
-        if opcion == 1:
-            if MostrarLista() == None:
+        bienvenido = "***------------- Bienvenido -------------***"
+        opcion = int(input("-----Menu-----\n 1... Guardar \n 2... Ver Lista \n 3... Ver Video \n 4...  modificar \n 5... Borrar \n 0... Salir\n"))
+        aux=9
+        if opcion == "ID":
+            if BD.MostrarLista() == None:
                 print("No hay videos guardados")
             urll = int(input("Ingresa URL para guardar un video :"+"\n"))
             categ = str(input("Ingresa CATEGORIA :"+"\n"))
-            print("Se creo el video con el ID: "+GuardarVideo(YT,BD,urll,x))
+            print("Se creo el video con el ID: "+BD.GuardarVideo(YT,BD,urll,x))
             continue
 
         elif opcion == 2:
-            if MostrarLista() == None:
+            if BD.MostrarLista() == None:
                 print("No hay videos agregados, regresando al menú...")
                 sleep(1)
                 continue
             else :
-                w=MostrarLista()
+                w=BD.MostrarLista()
                 for x in w:
-                    print(x)
-                F=input("Presiona cualquier tecla para continuar...")
+                    print(w.Id, w.Nombre)
+                aux=int(input("Guarda el ID DEL VIDEO DE TI INTERES\n"))
                 continue
 
 
         elif opcion == 3:
-            """Para no hacer lo mismo que en la opc 2, se recomienda haber ido
+            """Para no hacer lo mismo que en la opc 2, se recomienda  haber ido
             primero a la opc 2, copiar el id del video que quieres visualizar y
             darlo como parametro en el input de 'preg'
             """
+            print(aux+"Guardado")
             preg=str(input("Para ver un VIDEO ingresa el ID:"))
-            print(MostrarVideo(preg))
+            print(BD.MostrarVideo(preg))
             F=input("Presiona cualquier tecla para continuar...")
             continue
 
@@ -75,9 +77,9 @@ def main():
             print("Escribe el ID del video a MODIFICAR \n\n")
 
             mod=int(input())
-            print(AppYoutube.InfoVideo(mod)+"\n")
+            print(YT.AppYoutube.InfoVideo(mod)+"\n")
             ed=int(input("¿ Qué te gustaria editar ?\n---Descripción, ingresa 1\n---Categoria, ingresa 2\n"))
-            #vd = Video()
+            vd = Video()
             if ed == 1:
                 vd.Descripcion=str(input("ingresa la nueva descripción :"))
                 print("descripción editada")
@@ -93,7 +95,9 @@ def main():
 
 
         elif opcion == 5:
-            MostrarLista()
+            vid=BD.MostrarLista()
+            for d in vid:
+                print(vid.Id, vid.Nombre)
             eliminar1 = int(input("Ingrese el ID del video a eliminar: "))
             vid = AppYoutube.InfoVideo(eliminar1)
             eliminar2=int(input("Reingrese ID para confirmar que quieres borrar este video: "))
