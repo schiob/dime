@@ -1,6 +1,11 @@
 language: python
 python:
-	-3.7
+  - "3.6"  
+  
+
 install:
-	-pip install unittest2
-script: python test.py
+  - pip install unittest2
+
+
+script: 
+  - python test.py # or py.test for Python versions 3.5 and below
