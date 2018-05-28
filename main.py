@@ -40,12 +40,12 @@ def main():
         bienvenido = "***------------- Bienvenido -------------***"
         opcion = int(input("-----Menu-----\n 1... Guardar \n 2... Ver Lista \n 3... Ver Video \n 4...  modificar \n 5... Borrar \n 0... Salir\n"))
         aux=9
-        if opcion == "ID":
+        if opcion == 1:
             if BD.MostrarLista() == None:
                 print("No hay videos guardados")
-            urll = int(input("Ingresa URL para guardar un video :"+"\n"))
+            urll = str(input("Ingresa URL para guardar un video :"+"\n"))
             categ = str(input("Ingresa CATEGORIA :"+"\n"))
-            print("Se creo el video con el ID: "+BD.GuardarVideo(YT,BD,urll,x))
+            print("Se creo el video con el ID: "+GuardarVideo(YT,BD,urll,categ))
             continue
 
         elif opcion == 2:
@@ -113,4 +113,7 @@ def main():
             break
 
 if __name__ == '__main__':
-    main()
+    BD = SQlite()
+    YT= AppYoutube()
+    print(GuardarVideo(YT,BD,"https://www.youtube.com/watch?v=CU_qfVQ59jM",""))
+    print(MostrarLista(BD))
