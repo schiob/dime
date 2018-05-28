@@ -6,7 +6,7 @@ import emoji
 class AppYoutube(AbstractYoutube):
     def InfoVideo(self, url):
 
-        API_KEY = 'AIzaSyAF3BIAdtEu6Y3NR_BtkhViMfOGRxCD84Q'
+        API_KEY = 'AIzaSyAWrA1AR0ffrdvlPFF0Z5LhsJdfAFjhEPw'
         youtube = build('youtube', 'v3', developerKey=API_KEY)
 
         ids = url[32:43]
