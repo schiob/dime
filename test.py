@@ -13,6 +13,7 @@ class TestYouTube(unittest.TestCase):
 		self.video = Video(self.videomock.Nombre,self.videomock.Duracion,self.videomock.Canal,self.videomock.Fecha,self.videomock.Likes,self.videomock.Vistas,self.videomock.Descripcion)
 		self.sql = SQlite()
 		self.sql.GuardarVideo(self.video)
+		#self.sql.MostrarLista(self)
 
 		self.video1 = Video('uno',13,'lunes', "28 mayo 2018", 5000, 10000,'mal video')
 	def tearDown(self):
@@ -31,17 +32,19 @@ class TestYouTube(unittest.TestCase):
 		self.assertNotEqual(self.video1.Nombre, ('dos'))
 		self.assertNotEqual(self.video1.Duracion, 0 )
 		self.assertNotEqual(self.video1.Canal, '' )
-		self.assertNotEqual(self.video1.Fecha, "agost0" )
+		self.assertNotEqual(self.video1.Fecha, '8' )
 		self.assertNotEqual(self.video1.Likes, "!!" )
 		self.assertNotEqual(self.video1.Vistas, 10 )
 		self.assertNotEqual(self.video1.Descripcion, 'buen video' )
 
 
-	def test_guardar(self):
+	def test_GuardarVideo(self):
 		print("test_guardar")
+		#self.assertNotEqual(self.GuardarVideo(self.yt,self.sql,"https://www.youtube.com/watch?v=UFBgl3h0pXY"),155)
 		self.assertIsInstance(self.sql.GuardarVideo(self.video), Video)
 
+	def test_Muestra(self):
+		print("test_Mostrar")
+		self.assertIsInstance(self.sql.MostrarLista(12),Video)
 if __name__ == '__main__':
 	unittest.main() 
-
-
