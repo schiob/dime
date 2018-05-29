@@ -1,9 +1,9 @@
-lenguage: python
+lenguage: python3
 python:
   - "3.5"
   - "3.6"
   - "3.6.5"
 
-cache: pip3
-install: "pip3 install -r requirements.txt"
+cache: pip
+install: "pip install -r requirements.txt"
 sript: python test.py
