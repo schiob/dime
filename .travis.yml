@@ -2,7 +2,8 @@ lenguage: python
 python:
   - "3.5"
   - "3.6"
+  - "3.6.5"
 
-cache: pip
+cache: pip3
 install: "pip3 install -r requirements.txt"
 sript: python test.py

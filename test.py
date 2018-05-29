@@ -1,5 +1,5 @@
 from dime import *
-from ana_db import SQlite
+																																																																																																																																																															from ana_db import SQlite
 from raul_youtube import AppYoutube
 from time import sleep
 import unittest
@@ -45,6 +45,6 @@ class TestYouTube(unittest.TestCase):
 
 	def test_Muestra(self):
 		print("test_Mostrar")
-		self.assertIsInstance(self.sql.MostrarLista(12),Video)
+		#self.assertIsInstance(self.sql.MostrarLista(12),Video)
 if __name__ == '__main__':
 	unittest.main() 
