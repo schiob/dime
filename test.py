@@ -1,9 +1,8 @@
-from dime import *
-																																																																																																																																																															from ana_db import SQlite
-from raul_youtube import AppYoutube
-from time import sleep
 import unittest
-from unittest.mock import Mock 
+from unittest.mock import Mock
+from raul_youtube import AppYoutube
+from ana_db import SQlite
+from dime import Video, AbstractRepo, AbstractYoutube
 
 class TestYouTube(unittest.TestCase):
 
@@ -43,8 +42,6 @@ class TestYouTube(unittest.TestCase):
 		#self.assertNotEqual(self.GuardarVideo(self.yt,self.sql,"https://www.youtube.com/watch?v=UFBgl3h0pXY"),155)
 		self.assertIsInstance(self.sql.GuardarVideo(self.video), Video)
 
-	def test_Muestra(self):
-		print("test_Mostrar")
-		#self.assertIsInstance(self.sql.MostrarLista(12),Video)
+
 if __name__ == '__main__':
 	unittest.main() 
